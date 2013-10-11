@@ -26,6 +26,22 @@ use ClassTypes\String;
 use ClassTypes\Va;
 ```
 
+After that, all you need to do is to use your variables like that :
+
+```php
+$str = new String("Hey !");
+$int = new Int(3);
+```
+
+All objects implements the ``__invoke`` method which allow you to use each object like that :
+
+```php
+$str = new String("New String");
+$str("Updated String"); // Update the content of the object
+echo $str(); // Get the content of the object
+echo $str; // It works too because all objects implements the __toString method as well
+```
+
 ## Documentation
 
 Documentation will come when the project will be released...
