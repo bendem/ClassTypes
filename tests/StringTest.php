@@ -78,27 +78,10 @@ class StringTest extends PHPUnit_Framework_TestCase {
 		$str2 = new String("Test");
 
 		$this->assertRegExp("#^[Test]{4}$#", $str1->shuffle());
-		// $this->assertNotEquals($str2(), $str1());
-	}
-
-	public function testCaseCompare() {
-		$this->markTestIncomplete("Incorrect method case_compare");
-		$str1 = new String("Test");
-		$str2 = new String("test");
-		$str3 = new String("Test");
-
-		echo "\n";
-		echo strcasecmp("Test", "t");
-		echo $str1->case_compare($str2);
-		echo $str1->case_compare($str3);
-		echo "\n";
-
-		$this->assertFalse($str1->caseCompare($str2));
-		$this->assertTrue($str1->caseCompare($str3));
 	}
 
 	public function testLower() {
-		$str1 = new String("Test From Shadows...");
+		$str1 = new String("Test From ShadOws...");
 
 		$this->assertEquals("test from shadows...", $str1->lower());
 	}
@@ -135,13 +118,19 @@ class StringTest extends PHPUnit_Framework_TestCase {
 		$this->assertEquals("yolo\'swag", $str1->addSlashes());
 	}
 
-	public function testStristr() {
+	public function testStrPos() {
 		$str1 = new String("Test");
 		$str2 = new String("s");
 
-		$this->assertEquals("st", $str1->stristr($str2));
-		$this->assertEquals("st", $str1->stristr("s"));
-		$this->markTestIncomplete("Dunno what this method does...");
+		$this->assertEquals("st", $str1->strPos($str2));
+		$this->assertEquals("st", $str1->strPos("s"));
+		$this->markTestIncomplete("Weird comportment right now...");
+	}
+
+	public function testUcFirst() {
+		$str = new String("hey, what a nice place...");
+
+		$this->assertEquals("Hey, what a nice place...", $str->ucFirst());
 	}
 
 }

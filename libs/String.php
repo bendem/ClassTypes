@@ -65,17 +65,6 @@ class String extends Va {
 		return $this(str_shuffle($this()));
 	}
 
-	/**
-	 * @todo   strcasecmp ne renvoie pas un changement de casse...
-	 */
-	public function caseCompare(String $str) {
-		return strcasecmp($this(), $str());
-	}
-
-	public function case_compare(String $str) {
-		return $this->caseCompare($str);
-	}
-
 	public function lower() {
 		return $this(strtolower($this()));
 	}
@@ -92,6 +81,7 @@ class String extends Va {
 		if ($str instanceof String) {
 			return stripos($this(), $str());
 		}
+
 		return stripos($this(), $str);
 	}
 
@@ -109,14 +99,44 @@ class String extends Va {
 		return $this(addslashes($this()));
 	}
 
-	/**
-	 * @todo What is ``stristr`` used for ?
-	 */
-	public function stristr($str) {
+	public function str_pos($str, $case_sensitive = false) {
+		return $this->strPos($str, $case_sensitive);
+	}
+	public function strPos($str, $case_sensitive = false) {
 		if ($str instanceof String) {
-			return stristr($this(), $str());
+			$str = $str();
 		}
-		return stristr($this(), $str);
+
+		return $case_sensitive ? strstr($this(), $str) : stristr($this(), $str);
+	}
+
+	public function char_pos($char) {
+		return $this->charPos($char);
+	}
+	public function charPos($char) {
+		return strchr($this(), $char);
+	}
+
+	public function trim($str = " \t\n\r\0\x0B") {
+		if ($str instanceof String) {
+			$str = $str();
+		}
+
+		return $this(trim($this(), $str));
+	}
+
+	public function uc_first() {
+		return $this->ucFirst();
+	}
+	public function ucFirst() {
+		return $this(ucfirst($this()));
+	}
+
+	public function uc_words() {
+		return $this->ucWords();
+	}
+	public function ucWords() {
+		return $this(ucwords($this()));
 	}
 
 }
