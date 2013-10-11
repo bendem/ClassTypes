@@ -5,20 +5,27 @@ use ClassTypes\Float;
 class FloatTest extends PHPUnit_Framework_TestCase {
 
 	public function testCeil() {
-		$float = new Float(13.5);
+		$float1 = new Float(13.5);
+		$float2 = new Float(13.4);
 
-		$this->assertEquals(14, $float->ceil());
+		$this->assertEquals(14, $float1->ceil());
+		$this->assertEquals(14, $float2->ceil());
 	}
 
 	public function testRound() {
-		$float = new Float(13.5);
-		$this->assertEquals(14, $float->round());
+		$float1 = new Float(13.5);
+		$float2 = new Float(13.4);
+
+		$this->assertEquals(14, $float1->round());
+		$this->assertEquals(13, $float2->round());
 	}
 
 	public function testFloor() {
-		$float = new Float(13.5);
+		$float1 = new Float(13.5);
+		$float2 = new Float(13.4);
 
-		$this->assertEquals(13, $float->floor());
+		$this->assertEquals(13, $float1->floor());
+		$this->assertEquals(13, $float2->floor());
 	}
 
 }
