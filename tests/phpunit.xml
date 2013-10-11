@@ -2,15 +2,15 @@
 	<testsuites>
 		<testsuite name="Va Test">
 			<directory>./</directory>
-			<file phpVersion="5.5.0" phpVersionOperator=">=">VaTest.php</file>
+			<file>VaTest.php</file>
 		</testsuite>
 		<testsuite name="String Test">
 			<directory>./</directory>
-			<file phpVersion="5.5.0" phpVersionOperator=">=">StringTest.php</file>
+			<file>StringTest.php</file>
 		</testsuite>
 		<testsuite name="Float Test">
 			<directory>./</directory>
-			<file phpVersion="5.5.0" phpVersionOperator=">=">FloatTest.php</file>
+			<file>FloatTest.php</file>
 		</testsuite>
 	</testsuites>
 </phpunit>
