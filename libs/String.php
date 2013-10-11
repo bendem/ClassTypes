@@ -57,10 +57,6 @@ class String extends Va {
 		return new Arr(explode('', $this()));
 	}
 
-	public function to_arr() {
-		return $this->toArr();
-	}
-
 	public function shuffle() {
 		return $this(str_shuffle($this()));
 	}
@@ -85,23 +81,14 @@ class String extends Va {
 		return stripos($this(), $str);
 	}
 
-	public function strip_slashes() {
-		return $this->stripSlashes();
-	}
 	public function stripSlashes() {
 		return $this(stripslashes($this()));
 	}
 
-	public function add_slashes() {
-		return $this->addSlashes();
-	}
 	public function addSlashes() {
 		return $this(addslashes($this()));
 	}
 
-	public function str_pos($str, $case_sensitive = false) {
-		return $this->strPos($str, $case_sensitive);
-	}
 	public function strPos($str, $case_sensitive = false) {
 		if ($str instanceof String) {
 			$str = $str();
@@ -110,9 +97,6 @@ class String extends Va {
 		return $case_sensitive ? strstr($this(), $str) : stristr($this(), $str);
 	}
 
-	public function char_pos($char) {
-		return $this->charPos($char);
-	}
 	public function charPos($char) {
 		return strchr($this(), $char);
 	}
@@ -125,16 +109,10 @@ class String extends Va {
 		return $this(trim($this(), $str));
 	}
 
-	public function uc_first() {
-		return $this->ucFirst();
-	}
 	public function ucFirst() {
 		return $this(ucfirst($this()));
 	}
 
-	public function uc_words() {
-		return $this->ucWords();
-	}
 	public function ucWords() {
 		return $this(ucwords($this()));
 	}
