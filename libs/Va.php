@@ -11,7 +11,7 @@ class Va {
 	}
 
 	public function __invoke($content = false) {
-		if ($content) {
+		if ($content !== false) {
 			$this->_content = $content;
 		}
 
