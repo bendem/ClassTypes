@@ -2,6 +2,6 @@
 
 namespace ClassTypes;
 
-class Int {
+class Int extends Va {
 
 }

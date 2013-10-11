@@ -2,7 +2,7 @@
 
 namespace ClassTypes;
 
-class Float {
+class Float extends Va {
 
 	public function __construct($content = false) {
 		parent::__construct((float) $content);
