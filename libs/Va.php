@@ -11,6 +11,9 @@ class Va {
 	}
 
 	public function __invoke($content = false) {
+		if($content instanceof Va) {
+			$content = $content();
+		}
 		if ($content !== false) {
 			$this->_content = $content;
 		}

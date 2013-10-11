@@ -12,4 +12,12 @@ class Number extends Va {
 		return $this();
 	}
 
+	public function sqrt() {
+		if($this instanceof Float) {
+        	return $this(sqrt($this()));
+		}
+
+		return $this(new Int(sqrt($this())));
+    }
+
 }
