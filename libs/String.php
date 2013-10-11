@@ -8,6 +8,10 @@ namespace ClassTypes;
  */
 class String extends Va {
 
+	protected function _validate($var) {
+		return !is_array($var) && !is_object($var) || $var instanceof String;
+	}
+
 	/**
 	 * String constructor
 	 * @param string $content The value to give to the String

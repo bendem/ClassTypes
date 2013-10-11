@@ -2,7 +2,7 @@
 
 namespace ClassTypes;
 
-class Va {
+abstract class Va {
 
 	protected $_content = false;
 
@@ -15,6 +15,10 @@ class Va {
 			$content = $content();
 		}
 		if ($content !== false) {
+			if (!$this->_validate($content)) {
+				throw new BadMethodCallException(__CLASS__ . ' do not accept that type of argument');
+				return;
+			}
 			$this->_content = $content;
 		}
 
@@ -36,5 +40,7 @@ class Va {
 
 		return call_user_func_array([$this, $new_method], $args);
 	}
+
+	abstract protected function _validate($var);
 
 }

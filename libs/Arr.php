@@ -12,6 +12,10 @@ class Arr extends \ArrayObject {
         parent::__construct(array('content' => $content));
     }
 
+	protected function _validate($var) {
+		return !is_array($var) && !is_object($var) || $var instanceof String;
+	}
+
     /**
      * Overrides __toString()
      * @return string - String representation of data

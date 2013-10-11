@@ -4,6 +4,10 @@ namespace ClassTypes;
 
 class Number extends Va {
 
+	protected function _validate($var) {
+		return is_numeric($var);
+	}
+
 	public function absolute() {
 		if ($this() < 0) {
 			$this(-$this());
@@ -13,11 +17,11 @@ class Number extends Va {
 	}
 
 	public function sqrt() {
-		if($this instanceof Float) {
-        	return $this(sqrt($this()));
+		if($this instanceof Int) {
+			return $this(new Int(sqrt($this())));
 		}
 
-		return $this(new Int(sqrt($this())));
+    	return $this(sqrt($this()));
     }
 
 }
