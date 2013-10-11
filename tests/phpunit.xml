@@ -1,5 +1,9 @@
 <phpunit bootstrap="bootstrap.php">
 	<testsuites>
+		<testsuite name="Va Test">
+			<directory>./</directory>
+			<file phpVersion="5.5.0" phpVersionOperator=">=">VaTest.php</file>
+		</testsuite>
 		<testsuite name="String Test">
 			<directory>./</directory>
 			<file phpVersion="5.5.0" phpVersionOperator=">=">StringTest.php</file>

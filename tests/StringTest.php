@@ -4,29 +4,6 @@ use ClassTypes\String;
 
 class StringTest extends PHPUnit_Framework_TestCase {
 
-	public function testConstruct() {
-		$str1 = new String();
-		$str2 = new String("Test");
-
-		$this->assertEquals(false, $str1());
-		$this->assertEquals("", (string) $str1());
-	}
-
-	public function testInvoke() {
-		$str1 = new String();
-
-		$this->assertEquals("Test", $str1("Test"));
-		$this->assertEquals("Test", $str1());
-	}
-
-	public function testToString() {
-		$str1 = new String();
-		$str2 = new String("Test");
-
-		$this->assertEquals("Test", $str2());
-		$this->assertEquals("Test", (string) $str2());
-	}
-
 	public function testLength() {
 		$str1 = new String();
 		$str2 = new String("Test");
@@ -131,6 +108,12 @@ class StringTest extends PHPUnit_Framework_TestCase {
 		$str = new String("hey, what a nice place...");
 
 		$this->assertEquals("Hey, what a nice place...", $str->ucFirst());
+	}
+
+	public function testUcWords() {
+		$str = new String("hey, what a nice place...");
+
+		$this->assertEquals("Hey, What A Nice Place...", $str->ucWords());
 	}
 
 }
