@@ -9,7 +9,7 @@ namespace ClassTypes;
 class String extends Va {
 
 	public function __construct($content = "") {
-		parent::__construct($content);
+		parent::__construct((string) $content);
 	}
 
 	public function length() {
