@@ -12,12 +12,24 @@ class String extends Va {
 		parent::__construct((string) $content);
 	}
 
+	public function addSlashes() {
+		return $this(addslashes($this()));
+	}
+
+	public function char($str) {
+		return strchr($this(), $str);
+	}
+
+	public function charPos($char) {
+		return strchr($this(), $char);
+	}
+
 	public function length() {
 		return strlen($this());
 	}
 
-	public function replace($search, $replace) {
-		return $this(str_replace($search, $replace, $this->_content));
+	public function lower() {
+		return $this(strtolower($this()));
 	}
 
 	public function pad($pad_length, $pad_string = " ", $pad_type = STR_PAD_RIGHT) {
@@ -26,6 +38,10 @@ class String extends Va {
 
 	public function repeat($multiplier) {
 		return $this(str_repeat($this(), $multiplier));
+	}
+
+	public function replace($search, $replace) {
+		return $this(str_replace($search, $replace, $this->_content));
 	}
 
 	/**
@@ -53,26 +69,6 @@ class String extends Va {
 		return $this();
 	}
 
-	public function toArr() {
-		return new Arr(explode('', $this()));
-	}
-
-	public function shuffle() {
-		return $this(str_shuffle($this()));
-	}
-
-	public function lower() {
-		return $this(strtolower($this()));
-	}
-
-	public function upper() {
-		return $this(strtoupper($this()));
-	}
-
-	public function char($str) {
-		return strchr($this(), $str);
-	}
-
 	public function position($str) {
 		if ($str instanceof String) {
 			return stripos($this(), $str());
@@ -81,12 +77,12 @@ class String extends Va {
 		return stripos($this(), $str);
 	}
 
-	public function stripSlashes() {
-		return $this(stripslashes($this()));
+	public function shuffle() {
+		return $this(str_shuffle($this()));
 	}
 
-	public function addSlashes() {
-		return $this(addslashes($this()));
+	public function stripSlashes() {
+		return $this(stripslashes($this()));
 	}
 
 	public function strPos($str, $case_sensitive = false) {
@@ -97,8 +93,8 @@ class String extends Va {
 		return $case_sensitive ? strstr($this(), $str) : stristr($this(), $str);
 	}
 
-	public function charPos($char) {
-		return strchr($this(), $char);
+	public function toArr() {
+		return new Arr(explode('', $this()));
 	}
 
 	public function trim($str = " \t\n\r\0\x0B") {
@@ -115,6 +111,10 @@ class String extends Va {
 
 	public function ucWords() {
 		return $this(ucwords($this()));
+	}
+
+	public function upper() {
+		return $this(strtoupper($this()));
 	}
 
 }
