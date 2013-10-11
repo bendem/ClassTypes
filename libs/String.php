@@ -119,6 +119,7 @@ class String extends Va {
 		if ($replace instanceof String) {
 			$replace = $replace();
 		}
+
 		return $this(str_replace($search, $replace, $this->_content));
 	}
 
