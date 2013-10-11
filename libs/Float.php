@@ -2,7 +2,11 @@
 
 namespace ClassTypes;
 
-class Float extends Number {
+class Float {
+
+	public function __construct($content = false) {
+		parent::__construct((float) $content);
+	}
 
 	public function ceil() {
 		return $this(ceil($this()));

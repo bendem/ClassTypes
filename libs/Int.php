@@ -2,6 +2,6 @@
 
 namespace ClassTypes;
 
-class Int extends Number {
+class Int {
 
 }
