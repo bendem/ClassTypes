@@ -78,13 +78,13 @@ class String extends Va {
 	 * @see http://php.net/manual/en/function.str-pad.php
 	 */
 	public function pad($pad_length, $pad_string = " ", $pad_type = STR_PAD_RIGHT) {
-		if($pad_length instanceof Int) {
+		if ($pad_length instanceof Int) {
 			$pad_length = $pad_length();
 		}
-		if($pad_string instanceof String) {
+		if ($pad_string instanceof String) {
 			$pad_string = $pad_string();
 		}
-		if($pad_type instanceof Int) {
+		if ($pad_type instanceof Int) {
 			$pad_type = $pad_type();
 		}
 
@@ -100,7 +100,7 @@ class String extends Va {
 	 * @see http://php.net/manual/en/function.str-repeat.php
 	 */
 	public function repeat($multiplier) {
-		if($multiplier instanceof Int) {
+		if ($multiplier instanceof Int) {
 			$multiplier = $multiplier();
 		}
 
@@ -137,7 +137,7 @@ class String extends Va {
 	 */
 	public function rot($n = 13) {
 		$letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-		if($n instanceof Int) {
+		if ($n instanceof Int) {
 			$n = $n();
 		}
 		$n = (int) $n % 26;

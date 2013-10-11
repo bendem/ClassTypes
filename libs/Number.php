@@ -17,7 +17,7 @@ class Number extends Va {
 	}
 
 	public function sqrt() {
-		if($this instanceof Int) {
+		if ($this instanceof Int) {
 			return $this(new Int(sqrt($this())));
 		}
 
