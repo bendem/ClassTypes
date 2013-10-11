@@ -8,8 +8,11 @@ class StringTest extends PHPUnit_Framework_TestCase {
 		$str1 = new String();
 		$str2 = new String("Test");
 
-		$this->assertEquals(0, $str1->length());
-		$this->assertEquals(4, $str2->length());
+		$length1 = $str1->length();
+		$length2 = $str2->length();
+
+		$this->assertEquals(0, $length1());
+		$this->assertEquals(4, $length2());
 	}
 
 	public function testReplace() {
