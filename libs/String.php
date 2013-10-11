@@ -45,7 +45,7 @@ class String extends Va {
 			$c = $this()[$i];
 			if ($c >= 'a' && $c <= 'z') {
 				$this()[$i] = $letters[(ord($c) - 71 + $n) % 26];
-			} else if ($c >= 'A' && $c <= 'Z') {
+			} elseif ($c >= 'A' && $c <= 'Z') {
 				$this()[$i] = $letters[(ord($c) - 39 + $n) % 26 + 26];
 			}
 		}
@@ -89,7 +89,7 @@ class String extends Va {
 	}
 
 	public function position($str) {
-		if($str instanceof String) {
+		if ($str instanceof String) {
 			return stripos($this(), $str());
 		}
 		return stripos($this(), $str);
@@ -113,7 +113,7 @@ class String extends Va {
 	 * @todo What is ``stristr`` used for ?
 	 */
 	public function stristr($str) {
-		if($str instanceof String) {
+		if ($str instanceof String) {
 			return stristr($this(), $str());
 		}
 		return stristr($this(), $str);

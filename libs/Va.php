@@ -11,11 +11,11 @@ class Va {
 	}
 
 	public function __invoke($content = false) {
-		if($content) {
+		if ($content) {
 			$this->_content = $content;
 		}
-		return $this->_content;
 
+		return $this->_content;
 	}
 
 	public function __toString() {
