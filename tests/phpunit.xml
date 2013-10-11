@@ -4,13 +4,21 @@
 			<directory>./</directory>
 			<file>VaTest.php</file>
 		</testsuite>
-		<testsuite name="String Test">
+		<testsuite name="Number Test">
 			<directory>./</directory>
-			<file>StringTest.php</file>
+			<file>NumberTest.php</file>
 		</testsuite>
 		<testsuite name="Float Test">
 			<directory>./</directory>
 			<file>FloatTest.php</file>
+		</testsuite>
+		<testsuite name="Int Test">
+			<directory>./</directory>
+			<file>IntTest.php</file>
+		</testsuite>
+		<testsuite name="String Test">
+			<directory>./</directory>
+			<file>StringTest.php</file>
 		</testsuite>
 	</testsuites>
 </phpunit>

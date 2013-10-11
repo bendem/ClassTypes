@@ -2,7 +2,7 @@
 
 namespace ClassTypes;
 
-class Int extends Va {
+class Int extends Number {
 
 	const FLOOR = 1;
 	const ROUND = 2;
@@ -22,6 +22,30 @@ class Int extends Va {
 				break;
 		}
 		parent::__construct((int) $content);
+	}
+
+	public function increment() {
+		return $this($this() + 1);
+	}
+
+	public function decrement() {
+		return $this($this() - 1);
+	}
+
+	public function add($nb) {
+		if ($nb instanceof Int) {
+			$nb = $nb();
+		}
+
+		return $this($this() + $nb);
+	}
+
+	public function remove($nb) {
+		if ($nb instanceof Int) {
+			$nb = $nb();
+		}
+
+		return $this->add(-$nb);
 	}
 
 }
