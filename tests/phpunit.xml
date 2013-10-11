@@ -1,0 +1,12 @@
+<phpunit bootstrap="bootstrap.php">
+	<testsuites>
+		<testsuite name="String Test">
+			<directory>./</directory>
+			<file phpVersion="5.5.0" phpVersionOperator=">=">StringTest.php</file>
+		</testsuite>
+		<testsuite name="Float Test">
+			<directory>./</directory>
+			<file phpVersion="5.5.0" phpVersionOperator=">=">FloatTest.php</file>
+		</testsuite>
+	</testsuites>
+</phpunit>
