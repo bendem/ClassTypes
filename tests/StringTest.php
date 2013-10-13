@@ -119,4 +119,13 @@ class StringTest extends PHPUnit_Framework_TestCase {
 		$this->assertEquals("Hey, What A Nice Place...", $str->ucWords());
 	}
 
+	public function testTrim() {
+		$str1 = new String(" Test 	\n");
+		$str1b = new String($str1);
+		$str2 = new String("/test/test/");
+
+		$this->assertEquals("Test", $str1->trim());
+		$this->assertEquals("test/test", $str2->trim('/'));
+	}
+
 }
