@@ -75,7 +75,7 @@ class StringTest extends PHPUnit_Framework_TestCase {
 	public function testChar() {
 		$str1 = new String("Test");
 
-		$this->assertEquals("est", $str1->char("e"));
+		$this->assertEquals("est", $str1->charPos("e"));
 	}
 
 	public function testPosition() {

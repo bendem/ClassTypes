@@ -29,16 +29,8 @@ class String extends Va {
 		return $this(addslashes($this()));
 	}
 
-
 	/**
-	 * @todo  See what's going on with ``char``, ``charPos``, ``strPos``, ``position``
-	 */
-	public function char($str) {
-		return strchr($this(), $str);
-	}
-
-	/**
-	 * @todo  See what's going on with ``char``, ``charPos``, ``strPos``, ``position``
+	 * @todo  See what's going on with ``charPos``, ``strPos``, ``position``
 	 */
 	public function charPos($char) {
 		return strchr($this(), $char);
@@ -158,7 +150,7 @@ class String extends Va {
 	}
 
 	/**
-	 * @todo  See what's going on with ``char``, ``charPos``, ``strPos``, ``position``
+	 * @todo  See what's going on with ``charPos``, ``strPos``, ``position``
 	 */
 	public function position($str) {
 		if ($str instanceof String) {
@@ -191,7 +183,7 @@ class String extends Va {
 	}
 
 	/**
-	 * @todo  See what's going on with ``char``, ``charPos``, ``strPos``, ``position``
+	 * @todo  See what's going on with ``charPos``, ``strPos``, ``position``
 	 */
 	public function strPos($str, $case_sensitive = false) {
 		if ($str instanceof String) {
