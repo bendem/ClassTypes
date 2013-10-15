@@ -16,7 +16,7 @@ abstract class Va {
 		}
 		if ($content !== false) {
 			if (!$this->_validate($content)) {
-				throw new BadMethodCallException(__CLASS__ . ' do not accept that type of argument');
+				throw new \BadMethodCallException(__CLASS__ . ' do not accept that type of argument');
 				return;
 			}
 			$this->_content = $content;
@@ -34,7 +34,7 @@ abstract class Va {
 		$new_method = lcfirst(str_replace(' ', '', ucwords(str_replace('_', ' ', $method))));
 
 		if (!in_array($new_method, get_class_methods(__CLASS__))) {
-			throw new BadMethodCallException('Method not found');
+			throw new \BadMethodCallException('Method not found');
 			return;
 		}
 
