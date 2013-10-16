@@ -137,16 +137,18 @@ class String extends Va {
 			return $this();
 		}
 
+		$str = $this();
+
 		for ($i = 0, $l = strlen($this()); $i < $l; $i++) {
-			$c = $this()[$i];
+			$c = $str[$i];
 			if ($c >= 'a' && $c <= 'z') {
-				$this()[$i] = $letters[(ord($c) - 71 + $n) % 26];
+				$str[$i] = $letters[(ord($c) - 71 + $n) % 26];
 			} elseif ($c >= 'A' && $c <= 'Z') {
-				$this()[$i] = $letters[(ord($c) - 39 + $n) % 26 + 26];
+				$str[$i] = $letters[(ord($c) - 39 + $n) % 26 + 26];
 			}
 		}
 
-		return $this();
+		return $this($str);
 	}
 
 	/**
@@ -169,6 +171,21 @@ class String extends Va {
 	 */
 	public function shuffle() {
 		return $this(str_shuffle($this()));
+	}
+
+	public function slice($start, $length = false) {
+		if($start instanceof Int) {
+			$start = $start();
+		}
+		if($length instanceof Int) {
+			$length = $length();
+		}
+
+		if($length === false) {
+			return $this(substr($this(), $start));
+		}
+
+		return $this(substr($this(), $start, $length));
 	}
 
 	/**

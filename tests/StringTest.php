@@ -41,7 +41,15 @@ class StringTest extends PHPUnit_Framework_TestCase {
 
 	public function testRot() {
 		$str1 = new String("a");
-		$this->markTestIncomplete('Method rot not implemented yet');
+		$str2 = new String("A");
+
+		$this->assertEquals("n", $str1->rot());
+		$this->assertEquals("o", $str1->rot(1));
+		$this->assertEquals("g", $str1->rot(18));
+
+		$this->assertEquals("N", $str2->rot());
+		$this->assertEquals("O", $str2->rot(1));
+		$this->assertEquals("G", $str2->rot(18));
 	}
 
 	public function testToArr() {
@@ -126,6 +134,14 @@ class StringTest extends PHPUnit_Framework_TestCase {
 
 		$this->assertEquals("Test", $str1->trim());
 		$this->assertEquals("test/test", $str2->trim('/'));
+	}
+
+	public function testSlice() {
+		$str1 = new String("Test");
+		$str2 = new String("Test");
+
+		$this->assertEquals("est", $str1->slice(1));
+		$this->assertEquals("s", $str2->slice(2, -1));
 	}
 
 }
