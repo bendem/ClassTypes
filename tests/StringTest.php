@@ -1,5 +1,7 @@
 <?php
 
+use ClassTypes\Arr;
+use ClassTypes\Int;
 use ClassTypes\String;
 
 class StringTest extends PHPUnit_Framework_TestCase {
@@ -57,7 +59,7 @@ class StringTest extends PHPUnit_Framework_TestCase {
 		$str1 = new String("Test");
 
 		$arr = $str1->toArr();
-		$this->assertTrue($arr instanceof Arr);
+		$this->assertTrue($arr instanceof ClassTypes\Arr);
 		$this->assertEquals(['T', 'e', 's', 't'], $arr());
 	}
 
@@ -65,7 +67,7 @@ class StringTest extends PHPUnit_Framework_TestCase {
 		$str1 = new String("Test");
 		$str2 = new String("Test");
 
-		$this->assertRegExp("#^[Test]{4}$#", $str1->shuffle());
+		$this->assertRegExp("#^[Test]{4}$#", (string) $str1->shuffle());
 	}
 
 	public function testLower() {
@@ -80,18 +82,18 @@ class StringTest extends PHPUnit_Framework_TestCase {
 		$this->assertEquals("TEST FROM SHADOWS...", $str1->upper());
 	}
 
-	public function testChar() {
-		$str1 = new String("Test");
-
-		$this->assertEquals("est", $str1->charPos("e"));
-	}
-
 	public function testPosition() {
 		$str1 = new String("Test");
 		$str2 = new String("st");
 
-		$this->assertEquals(2, $str1->position($str2));
-		$this->assertEquals(2, $str1->position("st"));
+		$test1 = $str1->position($str2);
+		$test2 = $str1->position("st");
+
+		$this->assertTrue($test1 instanceof Int);
+		$this->assertTrue($test2 instanceof Int);
+		$this->assertFalse($str1->position("ab"));
+		$this->assertEquals(2, $test1());
+		$this->assertEquals(2, $test2());
 	}
 
 	public function testStripSlashes() {
@@ -104,15 +106,6 @@ class StringTest extends PHPUnit_Framework_TestCase {
 		$str1 = new String("yolo'swag");
 
 		$this->assertEquals("yolo\'swag", $str1->addSlashes());
-	}
-
-	public function testStrPos() {
-		$str1 = new String("Test");
-		$str2 = new String("s");
-
-		$this->assertEquals("st", $str1->strPos($str2));
-		$this->assertEquals("st", $str1->strPos("s"));
-		$this->markTestIncomplete("Weird comportment right now...");
 	}
 
 	public function testUcFirst() {
@@ -142,6 +135,34 @@ class StringTest extends PHPUnit_Framework_TestCase {
 
 		$this->assertEquals("est", $str1->slice(1));
 		$this->assertEquals("s", $str2->slice(2, -1));
+	}
+
+	public function testBefore() {
+		$str1 = new String("Test");
+		$str2 = new String("Test");
+		$str3 = new String("Test");
+
+		$test1 = $str1->before("e");
+		$test2 = $str2->before(1);
+		$test3 = $str3->before("a");
+
+		$this->assertEquals("T", $test1());
+		$this->assertEquals("T", $test2());
+		$this->assertEquals("", $test3());
+	}
+
+	public function testAfter() {
+		$str1 = new String("Test");
+		$str2 = new String("Test");
+		$str3 = new String("Test");
+
+		$test1 = $str1->after("e");
+		$test2 = $str2->after(1);
+		$test3 = $str3->after("a");
+
+		$this->assertEquals("st", $test1());
+		$this->assertEquals("st", $test2());
+		$this->assertEquals("", $test3());
 	}
 
 }

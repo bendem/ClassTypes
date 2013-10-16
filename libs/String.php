@@ -29,11 +29,39 @@ class String extends Va {
 		return $this(addslashes($this()));
 	}
 
+	public function after($needle) {
+		if($needle instanceof Int || $needle instanceof String) {
+			$needle = $needle();
+		}
+		if(is_int($needle)) {
+			$this($this->slice($needle + 1));
+			return $this;
+		}
+
+		$pos = $this->position($needle);
+		$this($pos === false ? '' : $this->slice($pos->add(1)));
+		return $this;
+	}
+
 	/**
-	 * @todo  See what's going on with ``charPos``, ``strPos``, ``position``
+	 * Return the String before the first occurence of the needle
+	 * @param  [type] $needle [description]
+	 * @return [type]         [description]
+	 *
+	 * @todo  Implementation
 	 */
-	public function charPos($char) {
-		return strchr($this(), $char);
+	public function before($needle) {
+		if($needle instanceof Int || $needle instanceof String) {
+			$needle = $needle();
+		}
+		if(is_int($needle)) {
+			$this($this->slice(0, $needle));
+			return $this;
+		}
+
+
+		$this($this->slice(0, $this->position($needle)));
+		return $this;
 	}
 
 	/**
@@ -55,7 +83,8 @@ class String extends Va {
 	 * @see http://php.net/manual/en/function.strtolower.php
 	 */
 	public function lower() {
-		return $this(strtolower($this()));
+		$this(strtolower($this()));
+		return $this;
 	}
 
 	/**
@@ -80,7 +109,8 @@ class String extends Va {
 			$pad_type = $pad_type();
 		}
 
-		return $this(str_pad($this(), $pad_length, $pad_string, $pad_type));
+		$this(str_pad($this(), $pad_length, $pad_string, $pad_type));
+		return $this;
 	}
 
 	/**
@@ -96,7 +126,8 @@ class String extends Va {
 			$multiplier = $multiplier();
 		}
 
-		return $this(str_repeat($this(), $multiplier));
+		$this(str_repeat($this(), $multiplier));
+		return $this;
 	}
 
 	/**
@@ -116,7 +147,8 @@ class String extends Va {
 			$replace = $replace();
 		}
 
-		return $this(str_replace($search, $replace, $this->_content));
+		$this(str_replace($search, $replace, $this->_content));
+		return $this;
 	}
 
 	/**
@@ -124,8 +156,6 @@ class String extends Va {
 	 *
 	 * @param  int $n Times the string is rotated
 	 * @return String
-	 *
-	 * @todo   The code is a copy/paste from internet, need to go further
 	 */
 	public function rot($n = 13) {
 		$letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -148,18 +178,22 @@ class String extends Va {
 			}
 		}
 
-		return $this($str);
+		$this($str);
+		return $this;
 	}
 
-	/**
-	 * @todo  See what's going on with ``charPos``, ``strPos``, ``position``
-	 */
-	public function position($str) {
+	public function position($str, $case_sensitive = true) {
 		if ($str instanceof String) {
-			return stripos($this(), $str());
+			$str = $str();
 		}
 
-		return stripos($this(), $str);
+		if($case_sensitive) {
+			$r = strpos($this(), $str);
+			return $r === false ? false : new Int(strpos($this(), $str));
+		}
+
+		$r = stripos($this(), $str);
+		return $r === false ? false : new Int(stripos($this(), $str));
 	}
 
 	/**
@@ -170,10 +204,11 @@ class String extends Va {
 	 * @see http://php.net/manual/en/function.str-shuffle.php
 	 */
 	public function shuffle() {
-		return $this(str_shuffle($this()));
+		$this(str_shuffle($this()));
+		return $this;
 	}
 
-	public function slice($start, $length = false) {
+	public function slice($start, $length = null) {
 		if($start instanceof Int) {
 			$start = $start();
 		}
@@ -181,11 +216,12 @@ class String extends Va {
 			$length = $length();
 		}
 
-		if($length === false) {
+		if($length === null) {
 			return $this(substr($this(), $start));
 		}
 
-		return $this(substr($this(), $start, $length));
+		$this(substr($this(), $start, $length));
+		return $this;
 	}
 
 	/**
@@ -196,18 +232,8 @@ class String extends Va {
 	 * @see http://php.net/manual/en/function.stripslashes.php
 	 */
 	public function stripSlashes() {
-		return $this(stripslashes($this()));
-	}
-
-	/**
-	 * @todo  See what's going on with ``charPos``, ``strPos``, ``position``
-	 */
-	public function strPos($str, $case_sensitive = false) {
-		if ($str instanceof String) {
-			$str = $str();
-		}
-
-		return $case_sensitive ? strstr($this(), $str) : stristr($this(), $str);
+		$this(stripslashes($this()));
+		return $this;
 	}
 
 	/**
@@ -216,7 +242,12 @@ class String extends Va {
 	 * @return Arr
 	 */
 	public function toArr() {
-		return new Arr(explode('', $this()));
+		$t = [];
+		$strlen = $this->length();
+		for ($i = 0; $i < $strlen(); $i++) {
+			$t[] = $this()[$i];
+		}
+		return new Arr($t);
 	}
 
 	/**
@@ -232,7 +263,8 @@ class String extends Va {
 			$str = $str();
 		}
 
-		return $this(trim($this(), $str));
+		$this(trim($this(), $str));
+		return $this;
 	}
 
 	/**
@@ -243,7 +275,8 @@ class String extends Va {
 	 * @see http://php.net/manual/en/function.ucfirst.php
 	 */
 	public function ucFirst() {
-		return $this(ucfirst($this()));
+		$this(ucfirst($this()));
+		return $this;
 	}
 
 	/**
@@ -254,7 +287,8 @@ class String extends Va {
 	 * @see http://php.net/manual/en/function.ucwords.php
 	 */
 	public function ucWords() {
-		return $this(ucwords($this()));
+		$this(ucwords($this()));
+		return $this;
 	}
 
 	/**
@@ -265,7 +299,8 @@ class String extends Va {
 	 * @see http://php.net/manual/en/function.strtoupper.php
 	 */
 	public function upper() {
-		return $this(strtoupper($this()));
+		$this(strtoupper($this()));
+		return $this;
 	}
 
 }
