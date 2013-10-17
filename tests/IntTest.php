@@ -23,19 +23,23 @@ class IntTest extends PHPUnit_Framework_TestCase {
 	public function testIncrement() {
 		$int = new Int(3);
 
-		$result = $int->increment();
+		$result1 = $int->increment();
+		$result2 = $int->increment();
 
-		$this->assertEquals(4, $result);
-		$this->assertEquals(4, $int());
+		$this->assertEquals(4, $result1());
+		$this->assertEquals(5, $result2());
+		$this->assertEquals(5, $int());
 	}
 
 	public function testDecrement() {
 		$int = new Int(3);
 
-		$result = $int->decrement();
+		$result1 = $int->decrement();
+		$result2 = $int->decrement();
 
-		$this->assertEquals(2, $result);
-		$this->assertEquals(2, $int());
+		$this->assertEquals(2, $result1());
+		$this->assertEquals(1, $result2());
+		$this->assertEquals(1, $int());
 	}
 
 	public function testAdd() {
@@ -44,8 +48,8 @@ class IntTest extends PHPUnit_Framework_TestCase {
 		$result1 = $int->add(5);
 		$result2 = $int->add($int);
 
-		$this->assertEquals(8, $result1);
-		$this->assertEquals(16, $result2);
+		$this->assertEquals(8, $result1());
+		$this->assertEquals(16, $result2());
 	}
 
 	public function testRemove() {
@@ -54,8 +58,8 @@ class IntTest extends PHPUnit_Framework_TestCase {
 		$result1 = $int->remove(5);
 		$result2 = $int->remove($int);
 
-		$this->assertEquals(10, $result1);
-		$this->assertEquals(0, $result2);
+		$this->assertEquals(10, $result1());
+		$this->assertEquals(0, $result2());
 	}
 
 }

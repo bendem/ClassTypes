@@ -25,11 +25,13 @@ class Int extends Number {
 	}
 
 	public function increment() {
-		return $this($this() + 1);
+		$this($this() + 1);
+		return clone $this;
 	}
 
 	public function decrement() {
-		return $this($this() - 1);
+		$this($this() - 1);
+		return clone $this;
 	}
 
 	public function add($nb) {
@@ -37,7 +39,8 @@ class Int extends Number {
 			$nb = $nb();
 		}
 
-		return $this($this() + $nb);
+		$this($this() + $nb);
+		return clone $this;
 	}
 
 	public function remove($nb) {
@@ -45,7 +48,8 @@ class Int extends Number {
 			$nb = $nb();
 		}
 
-		return $this->add(-$nb);
+		$this->add(-$nb);
+		return clone $this;
 	}
 
 }
