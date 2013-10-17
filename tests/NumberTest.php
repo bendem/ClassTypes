@@ -10,16 +10,22 @@ class NumberTest extends PHPUnit_Framework_TestCase {
 		$num1 = new Number(3.5);
 		$num2 = new Number(-5);
 
-		$this->assertEquals(3.5, $num1->absolute());
-		$this->assertEquals(5, $num2->absolute());
+		$result1 = $num1->absolute();
+		$result2 = $num2->absolute();
+
+		$this->assertEquals(3.5, $result1());
+		$this->assertEquals(5, $result2());
 	}
 
 	public function testSqrt() {
 		$int = new Int(25);
+		$float = new Float(25);
 
-		$result = $int->sqrt();
+		$resultInt = $int->sqrt();
+		$resultFloat = $float->sqrt();
 
-		$this->assertEquals(5, $result);
+		$this->assertEquals(5, $resultInt());
+		$this->assertEquals(5.0, $resultFloat());
 	}
 
 }

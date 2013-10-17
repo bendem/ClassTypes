@@ -13,15 +13,17 @@ class Number extends Va {
 			$this(-$this());
 		}
 
-		return $this();
+		return $this;
 	}
 
 	public function sqrt() {
 		if ($this instanceof Int) {
-			return $this(new Int(sqrt($this())));
+			$this(new Int(sqrt($this())));
+			return $this;
 		}
 
-    	return $this(sqrt($this()));
+    	$this(sqrt($this()));
+    	return $this;
     }
 
 }
