@@ -4,6 +4,22 @@ use ClassTypes\Int;
 
 class IntTest extends PHPUnit_Framework_TestCase {
 
+	public function testConstruct() {
+		$int1 = new Int(5.5, Int::FLOOR);
+		$int2 = new Int(5.5, Int::ROUND);
+		$int3 = new Int(5.5, Int::CEIL);
+		$int4 = new Int(5.4, Int::FLOOR);
+		$int5 = new Int(5.4, Int::ROUND);
+		$int6 = new Int(5.4, Int::CEIL);
+
+		$this->assertEquals(5, $int1());
+		$this->assertEquals(6, $int2());
+		$this->assertEquals(6, $int3());
+		$this->assertEquals(5, $int4());
+		$this->assertEquals(5, $int5());
+		$this->assertEquals(6, $int6());
+	}
+
 	public function testIncrement() {
 		$int = new Int(3);
 
