@@ -10,9 +10,9 @@ use ClassTypes\Va;
 class VaTest extends PHPUnit_Framework_TestCase {
 
 	public function testConstruct() {
-		$str = new String("Test");
-		$int1 = new Int(45);
-		$int2 = new Int(18.18);
+		$str   = new String("Test");
+		$int1  = new Int(45);
+		$int2  = new Int(18.18);
 		$float = new Float(0.5);
 		$float = new Float(15);
 

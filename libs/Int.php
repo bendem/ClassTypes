@@ -4,9 +4,9 @@ namespace ClassTypes;
 
 class Int extends Number {
 
-	const FLOOR = 1;
-	const ROUND = 2;
-	const CEIL  = 3;
+	const FLOOR                  = 1;
+	const ROUND                  = 2;
+	const CEIL                   = 3;
 	const DEFAULT_INITIALISATION = self::CEIL;
 
 	public function __construct($content = 0, $default_init = self::DEFAULT_INITIALISATION) {

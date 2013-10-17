@@ -4,6 +4,7 @@ namespace ClassTypes;
 
 /**
  * Class String
+ *
  * @author bendem <online@bendem.be>
  */
 class String extends Va {
@@ -242,7 +243,7 @@ class String extends Va {
 	 * @return Arr
 	 */
 	public function toArr() {
-		$t = [];
+		$tab    = [];
 		$strlen = $this->length();
 		for ($i = 0; $i < $strlen(); $i++) {
 			$t[] = $this()[$i];

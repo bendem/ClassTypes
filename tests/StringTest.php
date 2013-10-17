@@ -121,9 +121,9 @@ class StringTest extends PHPUnit_Framework_TestCase {
 	}
 
 	public function testTrim() {
-		$str1 = new String(" Test 	\n");
+		$str1  = new String(" Test 	\n");
 		$str1b = new String($str1);
-		$str2 = new String("/test/test/");
+		$str2  = new String("/test/test/");
 
 		$this->assertEquals("Test", $str1->trim());
 		$this->assertEquals("test/test", $str2->trim('/'));
