@@ -65,6 +65,18 @@ class String extends Va {
 	}
 
 	/**
+	 * Return the char at the offset of the String
+	 * @param  Int $offset Offset of the String
+	 * @return String
+	 */
+	public function char($offset) {
+		if($offset instanceof Int) {
+			$offset = $offset();
+		}
+		return $this->_new($this->slice($offset, 1));
+	}
+
+	/**
 	 * Return the length of the String
 	 *
 	 * @return Int

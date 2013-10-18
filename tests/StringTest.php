@@ -237,4 +237,12 @@ class StringTest extends PHPUnit_Framework_TestCase {
 		$this->assertEquals("st", $test4());
 	}
 
+	public function testChar() {
+		$str = new String("Test");
+		$int = new Int(2);
+
+		$this->assertEquals("s", $str->char($int));
+		$this->assertEquals("t", $str->char(3));
+	}
+
 }
