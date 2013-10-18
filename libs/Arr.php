@@ -2,6 +2,9 @@
 
 namespace ClassTypes;
 
+/**
+ * @todo  Use own version of Arr based on Va
+ */
 class Arr extends \ArrayObject {
 
     /**
@@ -12,16 +15,17 @@ class Arr extends \ArrayObject {
         parent::__construct($content);
     }
 
-	protected function _validate($var) {
-		return !is_array($var) && !is_object($var) || $var instanceof String;
-	}
-
     /**
      * Overrides __toString()
      * @return string - String representation of data
      */
     public function __toString() {
-        return $this->getContent();
+    	$str = "";
+    	for ($i = 0; $i < $this->count(); $i++) {
+    		$str .= $this->offsetGet($i);
+    	}
+
+    	return $str;
     }
 
 }
