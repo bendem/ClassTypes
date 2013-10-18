@@ -9,7 +9,7 @@ class Arr extends \ArrayObject {
      * @param string $content
      */
     public function __construct($content = false) {
-        parent::__construct(array('content' => $content));
+        parent::__construct($content);
     }
 
 	protected function _validate($var) {

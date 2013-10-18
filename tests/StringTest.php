@@ -73,12 +73,13 @@ class StringTest extends PHPUnit_Framework_TestCase {
 	}
 
 	public function testToArr() {
-		// $this->markTestIncomplete('Class Arr not implemented yet');
 		$str = "Test";
 		$str1 = new String($str);
 
 		$arr = $str1->toArr();
+
 		$this->assertTrue($arr instanceof ClassTypes\Arr);
+
 		for ($i = 0; $i < $arr->count(); $i++) {
 			$this->assertEquals($str[$i], $arr->offsetGet($i));
 		}

@@ -251,9 +251,9 @@ class String extends Va {
 		$tab    = [];
 		$strlen = $this->length();
 		for ($i = 0; $i < $strlen(); $i++) {
-			$t[] = $this()[$i];
+			$tab[] = $this()[$i];
 		}
-		return new Arr($t);
+		return new Arr($tab);
 	}
 
 	/**
