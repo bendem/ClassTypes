@@ -10,7 +10,7 @@ I tought the object type are kinda usefull so here we go...
 I'm going to make some implementations of Arr (Array), Char (or maybe not, it's like String),
 Float, Int and String.
 
-**The project is under development so it's not near to be usable ! :wink:**
+**The project is under development, use it at your own risks ! :wink:**
 
 ## Use
 
