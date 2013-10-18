@@ -31,8 +31,7 @@ class String extends Va {
 	 * @return  String
 	 */
 	public function addSlashes() {
-		$this(addslashes($this()));
-		return clone $this;
+		return $this->_new(addslashes($this()));
 	}
 
 	public function after($needle) {
@@ -40,13 +39,11 @@ class String extends Va {
 			$needle = $needle();
 		}
 		if(is_int($needle)) {
-			$this($this->slice($needle + 1));
-			return clone $this;
+			return $this->_new($this->slice($needle + 1));
 		}
 
 		$pos = $this->position($needle);
-		$this($pos === false ? '' : $this->slice($pos->add(1)));
-		return clone $this;
+		return $this->_new($pos === false ? '' : $this->slice($pos->add(1)));
 	}
 
 	/**
@@ -61,13 +58,10 @@ class String extends Va {
 			$needle = $needle();
 		}
 		if(is_int($needle)) {
-			$this($this->slice(0, $needle));
-			return clone $this;
+			return $this->_new($this->slice(0, $needle));
 		}
 
-
-		$this($this->slice(0, $this->position($needle)));
-		return clone $this;
+		return $this->_new($this->slice(0, $this->position($needle)));
 	}
 
 	/**
@@ -89,8 +83,7 @@ class String extends Va {
 	 * @see http://php.net/manual/en/function.strtolower.php
 	 */
 	public function lower() {
-		$this(strtolower($this()));
-		return clone $this;
+		return $this->_new(strtolower($this()));
 	}
 
 	/**
@@ -115,8 +108,7 @@ class String extends Va {
 			$pad_type = $pad_type();
 		}
 
-		$this(str_pad($this(), $pad_length, $pad_string, $pad_type));
-		return clone $this;
+		return $this->_new(str_pad($this(), $pad_length, $pad_string, $pad_type));
 	}
 
 	/**
@@ -132,8 +124,7 @@ class String extends Va {
 			$multiplier = $multiplier();
 		}
 
-		$this(str_repeat($this(), $multiplier));
-		return clone $this;
+		return $this->_new(str_repeat($this(), $multiplier));
 	}
 
 	/**
@@ -153,8 +144,7 @@ class String extends Va {
 			$replace = $replace();
 		}
 
-		$this(str_replace($search, $replace, $this->_content));
-		return clone $this;
+		return $this->_new(str_replace($search, $replace, $this->_content));
 	}
 
 	/**
@@ -170,7 +160,7 @@ class String extends Va {
 		}
 		$n = (int) $n % 26;
 		if (!$n) {
-			return $this();
+			return $this->_new($this);
 		}
 
 		$str = $this();
@@ -184,8 +174,7 @@ class String extends Va {
 			}
 		}
 
-		$this($str);
-		return clone $this;
+		return $this->_new($str);
 	}
 
 	public function position($str, $case_sensitive = true) {
@@ -210,8 +199,7 @@ class String extends Va {
 	 * @see http://php.net/manual/en/function.str-shuffle.php
 	 */
 	public function shuffle() {
-		$this(str_shuffle($this()));
-		return clone $this;
+		return $this->_new(str_shuffle($this()));
 	}
 
 	public function slice($start, $length = null) {
@@ -223,11 +211,10 @@ class String extends Va {
 		}
 
 		if($length === null) {
-			return $this(substr($this(), $start));
+			return $this->_new(substr($this(), $start));
 		}
 
-		$this(substr($this(), $start, $length));
-		return clone $this;
+		return $this->_new(substr($this(), $start, $length));
 	}
 
 	/**
@@ -238,8 +225,7 @@ class String extends Va {
 	 * @see http://php.net/manual/en/function.stripslashes.php
 	 */
 	public function stripSlashes() {
-		$this(stripslashes($this()));
-		return clone $this;
+		return $this->_new(stripslashes($this()));
 	}
 
 	/**
@@ -269,8 +255,7 @@ class String extends Va {
 			$str = $str();
 		}
 
-		$this(trim($this(), $str));
-		return clone $this;
+		return $this->_new(trim($this(), $str));
 	}
 
 	/**
@@ -281,8 +266,7 @@ class String extends Va {
 	 * @see http://php.net/manual/en/function.ucfirst.php
 	 */
 	public function ucFirst() {
-		$this(ucfirst($this()));
-		return clone $this;
+		return $this->_new(ucfirst($this()));
 	}
 
 	/**
@@ -293,8 +277,7 @@ class String extends Va {
 	 * @see http://php.net/manual/en/function.ucwords.php
 	 */
 	public function ucWords() {
-		$this(ucwords($this()));
-		return clone $this;
+		return $this->_new(ucwords($this()));
 	}
 
 	/**
@@ -305,8 +288,7 @@ class String extends Va {
 	 * @see http://php.net/manual/en/function.strtoupper.php
 	 */
 	public function upper() {
-		$this(strtoupper($this()));
-		return clone $this;
+		return $this->_new(strtoupper($this()));
 	}
 
 }

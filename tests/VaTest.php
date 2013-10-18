@@ -39,13 +39,22 @@ class VaTest extends PHPUnit_Framework_TestCase {
 	}
 
 	public function testInvoke() {
-		$str = new String();
-		$int = new Int();
+		$str  = new String();
+		$int1 = new Int();
+		$int2 = new Int();
 
-		$result = $str("Test");
+		$result1 = $str("Test");
+		$result2 = $int1(5);
+		$result3 = $int2($int1->add(3));
 
-		$this->assertEquals("Test", $result);
+		$this->assertEquals("Test", $result1);
 		$this->assertEquals("Test", $str());
+
+		$this->assertEquals(5, $result2);
+		$this->assertEquals(8, $result3);
+
+		$this->assertEquals(5, $int1());
+		$this->assertEquals(8, $int2());
 	}
 
 	/**
