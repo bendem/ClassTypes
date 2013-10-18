@@ -95,6 +95,16 @@ abstract class Va {
 	}
 
 	/**
+	 * Return a new instance of the current class with a new value
+	 * @param  mixed $var Value to give to the new object
+	 * @return mixed
+	 */
+	protected function _new($var) {
+		$class_name = get_called_class();
+		return new $class_name($var);
+	}
+
+	/**
 	 * Method used to know if a value can be cast into class
 	 * (i.e. String([]) is not possible)
 	 *

@@ -7,7 +7,7 @@ class Int extends Number {
 	const FLOOR                  = 1;
 	const ROUND                  = 2;
 	const CEIL                   = 3;
-	const DEFAULT_INITIALISATION = self::CEIL;
+	const DEFAULT_INITIALISATION = self::FLOOR;
 
 	public function __construct($content = 0, $default_init = self::DEFAULT_INITIALISATION) {
 		if (!$this->_validate($content)) {
@@ -29,13 +29,11 @@ class Int extends Number {
 	}
 
 	public function increment() {
-		$this($this() + 1);
-		return clone $this;
+		return $this->_new($this() + 1);
 	}
 
 	public function decrement() {
-		$this($this() - 1);
-		return clone $this;
+		return $this->_new($this() - 1);
 	}
 
 	public function add($nb) {
@@ -43,8 +41,7 @@ class Int extends Number {
 			$nb = $nb();
 		}
 
-		$this($this() + $nb);
-		return clone $this;
+		return $this->_new($this() + $nb);
 	}
 
 	public function remove($nb) {
@@ -52,8 +49,7 @@ class Int extends Number {
 			$nb = $nb();
 		}
 
-		$this->add(-$nb);
-		return clone $this;
+		return $this->add(-$nb);
 	}
 
 }

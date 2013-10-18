@@ -13,15 +13,15 @@ class Float extends Number {
 	}
 
 	public function ceil() {
-		return $this(ceil($this()));
+		return $this->_new(ceil($this()));
 	}
 
 	public function round() {
-		return $this(round($this()));
+		return $this->_new(round($this()));
 	}
 
 	public function floor() {
-		return $this(floor($this()));
+		return $this->_new(floor($this()));
 	}
 
 }

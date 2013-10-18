@@ -29,6 +29,15 @@ class VaTest extends PHPUnit_Framework_TestCase {
 		$this->assertEquals(-233.95, $float->get());
 	}
 
+	public function testNew() {
+		$int = new Int(9);
+
+		$int2 = $int->add(3);
+
+		$this->assertEquals(9, $int());
+		$this->assertEquals(12, $int2());
+	}
+
 	public function testInvoke() {
 		$str = new String();
 		$int = new Int();
