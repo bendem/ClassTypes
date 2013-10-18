@@ -45,3 +45,18 @@ echo $str; // It works too because all objects implements the __toString method 
 ## Documentation
 
 Documentation will come when the project will be released...
+
+## Contributing
+
+As easy as if it was hosted on github !
+
++ Fork
++ Write new functionnality / write a fix
++ Write a test case
++ Send a pull request
+
+To know about coding standards, view [CONTRIBUTING.md](CONTRIBUTING.md)
+
+## License
+
+See [LICENSE.txt](LICENSE.txt)
