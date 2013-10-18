@@ -33,7 +33,7 @@ class Float extends Number {
 	 * Returns the rounded value to specified precision
 	 *
 	 * @param  Int $precision The optional number of decimal digits to round to.
-	 * @return Int
+	 * @return Float
 	 *
 	 * @see  http://php.net/manual/en/function.round.php
 	 */
@@ -42,7 +42,7 @@ class Float extends Number {
 			$precision = $precision();
 		}
 
-		return new Int(round($this(), $precision));
+		return $this->_new(round($this(), $precision));
 	}
 
 	/**
