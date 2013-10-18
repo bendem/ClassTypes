@@ -4,6 +4,13 @@ use ClassTypes\Float;
 
 class FloatTest extends PHPUnit_Framework_TestCase {
 
+	/**
+	 * @expectedException InvalidArgumentException
+	 */
+	public function testConstructException() {
+		$int = new Float("test");
+	}
+
 	public function testCeil() {
 		$float1 = new Float(13.5);
 		$float2 = new Float(13.4);

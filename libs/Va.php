@@ -7,7 +7,7 @@ abstract class Va {
 	protected $_content = false;
 
 	public function __construct($content = false) {
-		$this->_content = $content;
+		$this($content);
 	}
 
 	public function __invoke($content = false) {
@@ -16,7 +16,7 @@ abstract class Va {
 		}
 		if ($content !== false) {
 			if (!$this->_validate($content)) {
-				throw new \BadMethodCallException(__CLASS__ . ' do not accept that type of argument');
+				throw new \InvalidArgumentException(get_called_class() . ' do not accept that type of argument');
 				return;
 			}
 			$this->_content = $content;
@@ -33,7 +33,7 @@ abstract class Va {
 		//construct camelcased named method from underscored named method
 		$new_method = lcfirst(str_replace(' ', '', ucwords(str_replace('_', ' ', $method))));
 
-		if (!in_array($new_method, get_class_methods(__CLASS__))) {
+		if (!in_array($new_method, get_class_methods(get_called_class()))) {
 			throw new \BadMethodCallException('Method not found');
 			return;
 		}

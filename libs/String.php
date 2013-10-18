@@ -18,6 +18,10 @@ class String extends Va {
 	 * @param string $content The value to give to the String
 	 */
 	public function __construct($content = "") {
+		if (!$this->_validate($content)) {
+			throw new \InvalidArgumentException(get_called_class() . ' do not accept that type of argument');
+			return;
+		}
 		parent::__construct((string) $content);
 	}
 
@@ -27,7 +31,8 @@ class String extends Va {
 	 * @return  String
 	 */
 	public function addSlashes() {
-		return $this(addslashes($this()));
+		$this(addslashes($this()));
+		return clone $this;
 	}
 
 	public function after($needle) {
@@ -36,12 +41,12 @@ class String extends Va {
 		}
 		if(is_int($needle)) {
 			$this($this->slice($needle + 1));
-			return $this;
+			return clone $this;
 		}
 
 		$pos = $this->position($needle);
 		$this($pos === false ? '' : $this->slice($pos->add(1)));
-		return $this;
+		return clone $this;
 	}
 
 	/**
@@ -57,12 +62,12 @@ class String extends Va {
 		}
 		if(is_int($needle)) {
 			$this($this->slice(0, $needle));
-			return $this;
+			return clone $this;
 		}
 
 
 		$this($this->slice(0, $this->position($needle)));
-		return $this;
+		return clone $this;
 	}
 
 	/**
@@ -85,7 +90,7 @@ class String extends Va {
 	 */
 	public function lower() {
 		$this(strtolower($this()));
-		return $this;
+		return clone $this;
 	}
 
 	/**
@@ -111,7 +116,7 @@ class String extends Va {
 		}
 
 		$this(str_pad($this(), $pad_length, $pad_string, $pad_type));
-		return $this;
+		return clone $this;
 	}
 
 	/**
@@ -128,7 +133,7 @@ class String extends Va {
 		}
 
 		$this(str_repeat($this(), $multiplier));
-		return $this;
+		return clone $this;
 	}
 
 	/**
@@ -149,7 +154,7 @@ class String extends Va {
 		}
 
 		$this(str_replace($search, $replace, $this->_content));
-		return $this;
+		return clone $this;
 	}
 
 	/**
@@ -180,7 +185,7 @@ class String extends Va {
 		}
 
 		$this($str);
-		return $this;
+		return clone $this;
 	}
 
 	public function position($str, $case_sensitive = true) {
@@ -206,7 +211,7 @@ class String extends Va {
 	 */
 	public function shuffle() {
 		$this(str_shuffle($this()));
-		return $this;
+		return clone $this;
 	}
 
 	public function slice($start, $length = null) {
@@ -222,7 +227,7 @@ class String extends Va {
 		}
 
 		$this(substr($this(), $start, $length));
-		return $this;
+		return clone $this;
 	}
 
 	/**
@@ -234,7 +239,7 @@ class String extends Va {
 	 */
 	public function stripSlashes() {
 		$this(stripslashes($this()));
-		return $this;
+		return clone $this;
 	}
 
 	/**
@@ -265,7 +270,7 @@ class String extends Va {
 		}
 
 		$this(trim($this(), $str));
-		return $this;
+		return clone $this;
 	}
 
 	/**
@@ -277,7 +282,7 @@ class String extends Va {
 	 */
 	public function ucFirst() {
 		$this(ucfirst($this()));
-		return $this;
+		return clone $this;
 	}
 
 	/**
@@ -289,7 +294,7 @@ class String extends Va {
 	 */
 	public function ucWords() {
 		$this(ucwords($this()));
-		return $this;
+		return clone $this;
 	}
 
 	/**
@@ -301,7 +306,7 @@ class String extends Va {
 	 */
 	public function upper() {
 		$this(strtoupper($this()));
-		return $this;
+		return clone $this;
 	}
 
 }

@@ -10,6 +10,10 @@ class Int extends Number {
 	const DEFAULT_INITIALISATION = self::CEIL;
 
 	public function __construct($content = 0, $default_init = self::DEFAULT_INITIALISATION) {
+		if (!$this->_validate($content)) {
+			throw new \InvalidArgumentException(get_called_class() . ' do not accept that type of argument');
+			return;
+		}
 		switch ($default_init) {
 			case self::FLOOR:
 				$content = floor($content);

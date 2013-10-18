@@ -20,6 +20,13 @@ class IntTest extends PHPUnit_Framework_TestCase {
 		$this->assertEquals(6, $int6());
 	}
 
+	/**
+	 * @expectedException InvalidArgumentException
+	 */
+	public function testConstructException() {
+		$int = new Int("test");
+	}
+
 	public function testIncrement() {
 		$int = new Int(3);
 
