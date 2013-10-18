@@ -3,12 +3,11 @@
 ## The project
 
 This is kinda fun for me to play with php...
-But I think php miss some features and standards (especially for strings).
+But I think it misses some features and standards (especially for strings).
 
 I tought the object type are kinda usefull so here we go...
 
-I'm going to make some implementations of Arr (Array), Char (or maybe not, it's like String),
-Float, Int and String.
+I'm going to make implementations of Arr (Array), Float, Int and String.
 
 **The project is under development, use it at your own risks ! :wink:**
 
@@ -38,8 +37,8 @@ All objects implements the ``__invoke`` method which allow you to use each objec
 ```php
 $str = new String("New String");
 $str("Updated String"); // Update the content of the object
-echo $str(); // Get the content of the object
-echo $str; // It works too because all objects implements the __toString method as well
+echo $str();            // Get the content of the object
+echo $str;              // It works because all objects implement the __toString method as well
 ```
 
 ## Documentation
@@ -55,7 +54,7 @@ As easy as if it was hosted on github !
 + Write a test case,
 + Send a pull request.
 
-To know about coding standards, view [CONTRIBUTING.md](CONTRIBUTING.md).
+To know about coding standards, see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 
