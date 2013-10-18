@@ -8,16 +8,18 @@ namespace ClassTypes;
 class Arr extends \ArrayObject {
 
     /**
-     * Constructor function for string object
-     * @param string $content
+     * Constructor for Arr
+     *
+     * @param array $content Content used to initialize the object
      */
-    public function __construct($content = false) {
+    public function __construct(array $content = array()) {
         parent::__construct($content);
     }
 
     /**
      * Overrides __toString()
-     * @return string - String representation of data
+     *
+     * @return string String representation of the object
      */
     public function __toString() {
     	$str = "";

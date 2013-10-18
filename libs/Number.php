@@ -8,6 +8,11 @@ class Number extends Va {
 		return is_numeric($var);
 	}
 
+	/**
+	 * Return the absolute value
+	 *
+	 * @return Int | Float
+	 */
 	public function absolute() {
 		$res = $this();
 		if ($res < 0) {
@@ -17,11 +22,14 @@ class Number extends Va {
 		return $this->_new($res);
 	}
 
+	/**
+	 * Returns the square root value
+	 *
+	 * @return Int | Float
+	 *
+	 * @see http://php.net/manual/en/function.sqrt.php
+	 */
 	public function sqrt() {
-		if ($this instanceof Int) {
-			return new Int(sqrt($this()));
-		}
-
 		return $this->_new(sqrt($this()));
 	}
 

@@ -15,6 +15,7 @@ abstract class Va {
 
 	/**
 	 * Allow user to set a value while declaring the object
+	 *
 	 * @param mixed $content Value to store
 	 */
 	public function __construct($content = false) {
@@ -68,7 +69,6 @@ abstract class Va {
 	 *
 	 * @param  string $method Method called by the user
 	 * @param  array  $args   Arguments passed to the function
-	 *
 	 * @return mixed
 	 */
 	public function __call($method, $args) {
@@ -96,6 +96,7 @@ abstract class Va {
 
 	/**
 	 * Return a new instance of the current class with a new value
+	 *
 	 * @param  mixed $var Value to give to the new object
 	 * @return mixed
 	 */
@@ -109,7 +110,6 @@ abstract class Va {
 	 * (i.e. String([]) is not possible)
 	 *
 	 * @param  mixes $var Variable to validate
-	 *
 	 * @return bool Validity of the variable
 	 */
 	abstract protected function _validate($var);

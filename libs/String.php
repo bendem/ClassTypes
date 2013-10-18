@@ -15,7 +15,8 @@ class String extends Va {
 
 	/**
 	 * String constructor
-	 * @param string $content The value to give to the String
+	 *
+	 * @param String $content The value to give to the String
 	 */
 	public function __construct($content = "") {
 		if (!$this->_validate($content)) {
@@ -27,13 +28,21 @@ class String extends Va {
 
 	/**
 	 * Quote String with slashes
-	 * @see http://php.net/manual/en/function.addslashes.php
+	 *
 	 * @return  String
+	 *
+	 * @see http://php.net/manual/en/function.addslashes.php
 	 */
 	public function addSlashes() {
 		return $this->_new(addslashes($this()));
 	}
 
+	/**
+	 * Return the part of the String after the $needle
+	 *
+	 * @param  String | Int $needle The String to take the part after or the position of it
+	 * @return String
+	 */
 	public function after($needle) {
 		if ($needle instanceof Int || $needle instanceof String) {
 			$needle = $needle();
@@ -47,11 +56,10 @@ class String extends Va {
 	}
 
 	/**
-	 * Return the String before the first occurence of the needle
-	 * @param  [type] $needle [description]
-	 * @return [type]         [description]
+	 * Return the part of the String before the $needle
 	 *
-	 * @todo  Implementation
+	 * @param  String | Int $needle The String to take the part after or the position of it
+	 * @return String
 	 */
 	public function before($needle) {
 		if ($needle instanceof Int || $needle instanceof String) {
@@ -66,6 +74,7 @@ class String extends Va {
 
 	/**
 	 * Return the char at the offset of the String
+	 *
 	 * @param  Int $offset Offset of the String
 	 * @return String
 	 */
@@ -73,6 +82,7 @@ class String extends Va {
 		if ($offset instanceof Int) {
 			$offset = $offset();
 		}
+
 		return $this->_new($this->slice($offset, 1));
 	}
 
@@ -140,7 +150,7 @@ class String extends Va {
 	}
 
 	/**
-	 * This function replaces all occurrences of search in the String with the given replace value.
+	 * This method replaces all occurrences of search in the String with the given replace value.
 	 *
 	 * @param  string $search  The value being searched for
 	 * @param  string $replace The replacement value that replaces found search values
@@ -189,6 +199,16 @@ class String extends Va {
 		return $this->_new($str);
 	}
 
+	/**
+	 * Return the position of the $str given
+	 *
+	 * @param  String  $str The String to look for
+	 * @param  bool $case_sensitive Is the search case sensitive ?
+	 * @return Int | bool
+	 *
+	 * @see http://php.net/manual/en/function.strpos.php
+	 * @see http://php.net/manual/en/function.stripos.php
+	 */
 	public function position($str, $case_sensitive = true) {
 		if ($str instanceof String) {
 			$str = $str();
@@ -214,6 +234,15 @@ class String extends Va {
 		return $this->_new(str_shuffle($this()));
 	}
 
+	/**
+	 * Return a slice of the String
+	 *
+	 * @param  Int $start  The offset of the beginning of the slice
+	 * @param  Int $length The length of the slice
+	 * @return String
+	 *
+	 * @see http://php.net/manual/en/function.substr.php
+	 */
 	public function slice($start, $length = null) {
 		if ($start instanceof Int) {
 			$start = $start();
@@ -241,7 +270,7 @@ class String extends Va {
 	}
 
 	/**
-	 * Decompose the String in an Array
+	 * Decompose the String in Array
 	 *
 	 * @return Arr
 	 */
@@ -251,6 +280,7 @@ class String extends Va {
 		for ($i = 0; $i < $strlen(); $i++) {
 			$tab[] = $this()[$i];
 		}
+
 		return new Arr($tab);
 	}
 
