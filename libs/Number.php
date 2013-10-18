@@ -9,21 +9,20 @@ class Number extends Va {
 	}
 
 	public function absolute() {
-		if ($this() < 0) {
-			$this(-$this());
+		$res = $this();
+		if ($res < 0) {
+			$res = -$res;
 		}
 
-		return $this;
+		return $this->_new($res);
 	}
 
 	public function sqrt() {
 		if ($this instanceof Int) {
-			$this(new Int(sqrt($this())));
-			return $this;
+			return new Int(sqrt($this()));
 		}
 
-    	$this(sqrt($this()));
-    	return $this;
-    }
+		return $this->_new(sqrt($this()));
+	}
 
 }
