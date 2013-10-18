@@ -35,10 +35,10 @@ class String extends Va {
 	}
 
 	public function after($needle) {
-		if($needle instanceof Int || $needle instanceof String) {
+		if ($needle instanceof Int || $needle instanceof String) {
 			$needle = $needle();
 		}
-		if(is_int($needle)) {
+		if (is_int($needle)) {
 			return $this->_new($this->slice($needle + 1));
 		}
 
@@ -54,10 +54,10 @@ class String extends Va {
 	 * @todo  Implementation
 	 */
 	public function before($needle) {
-		if($needle instanceof Int || $needle instanceof String) {
+		if ($needle instanceof Int || $needle instanceof String) {
 			$needle = $needle();
 		}
-		if(is_int($needle)) {
+		if (is_int($needle)) {
 			return $this->_new($this->slice(0, $needle));
 		}
 
@@ -70,7 +70,7 @@ class String extends Va {
 	 * @return String
 	 */
 	public function char($offset) {
-		if($offset instanceof Int) {
+		if ($offset instanceof Int) {
 			$offset = $offset();
 		}
 		return $this->_new($this->slice($offset, 1));
@@ -194,7 +194,7 @@ class String extends Va {
 			$str = $str();
 		}
 
-		if($case_sensitive) {
+		if ($case_sensitive) {
 			$r = strpos($this(), $str);
 			return $r === false ? false : new Int(strpos($this(), $str));
 		}
@@ -215,14 +215,14 @@ class String extends Va {
 	}
 
 	public function slice($start, $length = null) {
-		if($start instanceof Int) {
+		if ($start instanceof Int) {
 			$start = $start();
 		}
-		if($length instanceof Int) {
+		if ($length instanceof Int) {
 			$length = $length();
 		}
 
-		if($length === null) {
+		if ($length === null) {
 			return $this->_new(substr($this(), $start));
 		}
 

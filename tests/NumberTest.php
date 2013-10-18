@@ -23,13 +23,13 @@ class NumberTest extends PHPUnit_Framework_TestCase {
 		$int = new Int(25);
 		$float = new Float(25);
 
-		$resultInt = $int->sqrt();
-		$resultFloat = $float->sqrt();
+		$result_int = $int->sqrt();
+		$result_float = $float->sqrt();
 
 		$this->assertEquals(25, $int());
 		$this->assertEquals(25, $float());
-		$this->assertEquals(5, $resultInt());
-		$this->assertEquals(5.0, $resultFloat());
+		$this->assertEquals(5, $result_int());
+		$this->assertEquals(5.0, $result_float());
 	}
 
 }
