@@ -2,6 +2,9 @@
 
 namespace ClassTypes;
 
+/**
+ * @todo  Each method should return a new object without modifying the current one
+ */
 abstract class Va {
 
 	protected $_content = false;
