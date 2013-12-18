@@ -45,6 +45,9 @@ echo $str;              // It works because all objects implement the __toString
 
 Documentation will come when the project will be released...
 
+For now, you can build the API interface documentation using [Sami](https://github.com/fabpot/Sami)
+and the [sami.php config file](sami.php).
+
 ## Contributing
 
 As easy as if it was hosted on github !
