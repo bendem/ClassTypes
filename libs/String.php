@@ -357,7 +357,7 @@ class String extends Va implements \countable, \ArrayAccess, \Iterator {
 		return $offset >= 0 && $offset < count($this);
 	}
 	public function offsetGet($offset) {
-		return $this->slice($offset, 1);
+		return $this->char($offset)->get();
 	}
 	public function offsetSet($offset, $value) {
 		$str = $this();
@@ -374,7 +374,7 @@ class String extends Va implements \countable, \ArrayAccess, \Iterator {
 	 * @see http://php.net/manual/en/class.iterator.php
 	 */
 	public function current() {
-		return $this->offsetGet($this->_current);
+		return $this->char($this->_current)->get();
 	}
 	public function rewind() {
 		$this->_current = 0;
