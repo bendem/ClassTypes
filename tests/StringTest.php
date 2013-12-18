@@ -245,4 +245,39 @@ class StringTest extends PHPUnit_Framework_TestCase {
 		$this->assertEquals("t", $str->char(3));
 	}
 
+	public function testCount() {
+		$this->assertEquals(4, count(new String('Test')));
+		$this->assertEquals(0, count(new String('')));
+	}
+
+	public function testArrayAccess() {
+		$str = "Test";
+		$testStr = new String($str);
+		$i = 0;
+
+		foreach ($testStr as $key => $value) {
+			$this->assertEquals($str[$i], $testStr[$i]);
+			$i++;
+		}
+
+		$testStr[1] = "a";
+		$this->assertEquals("Tast", $testStr());
+
+		unset($testStr[1]);
+		$this->assertEquals("Tst", $testStr());
+	}
+
+	public function testIterator() {
+		$str = "Test";
+		$testStr = new String($str);
+		$i = 0;
+
+		foreach ($testStr as $key => $value) {
+			$this->assertEquals($i, $key);
+			$this->assertEquals($str[$i], $value);
+			$this->assertEquals($str[$i], $testStr[$i]);
+			$i++;
+		}
+	}
+
 }

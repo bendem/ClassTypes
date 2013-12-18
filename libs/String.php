@@ -7,7 +7,13 @@ namespace ClassTypes;
  *
  * @author bendem <online@bendem.be>
  */
-class String extends Va {
+class String extends Va implements \countable, \ArrayAccess, \Iterator {
+
+	/**
+	 * Current position in the object used to implement \Iterator
+	 * @var integer
+	 */
+	protected $_current = 0;
 
 	protected function _validate($var) {
 		return !is_array($var) && !is_object($var) || $var instanceof String;
@@ -331,6 +337,56 @@ class String extends Va {
 	 */
 	public function upper() {
 		return $this->_new(strtoupper($this()));
+	}
+
+	/**
+	 * Countable interface implementation
+	 *
+	 * @see http://php.net/manual/en/class.countable.php
+	 */
+	public function count() {
+		return $this->length()->get();
+	}
+
+	/**
+	 * ArrayAccess interface implementation
+	 *
+	 * @see http://php.net/manual/en/class.arrayaccess.php
+	 */
+	public function offsetExists($offset) {
+		return $offset >= 0 && $offset < count($this);
+	}
+	public function offsetGet($offset) {
+		return $this->slice($offset, 1);
+	}
+	public function offsetSet($offset, $value) {
+		$str = $this();
+		$str[$offset] = $value;
+		$this($str);
+	}
+	public function offsetUnset($offset) {
+		$this($this->slice(0, $offset) . $this->slice($offset + 1, $this->length()->get() - $offset - 1));
+	}
+
+	/**
+	 * Iterator interface implementation
+	 *
+	 * @see http://php.net/manual/en/class.iterator.php
+	 */
+	public function current() {
+		return $this->offsetGet($this->_current);
+	}
+	public function rewind() {
+		$this->_current = 0;
+	}
+	public function key() {
+		return $this->_current;
+	}
+	public function next() {
+		$this->_current++;
+	}
+	public function valid() {
+		return $this->offsetExists($this->_current);
 	}
 
 }
