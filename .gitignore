@@ -1,5 +1,5 @@
 cache/*
 build/*
-sami.*
 tests/code-coverage/*
 index.php
+*.bat
