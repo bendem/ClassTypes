@@ -3,7 +3,7 @@
 namespace ClassTypes;
 
 /**
- * @todo  Each method should return a new object without modifying the current one
+ * Base class for all the classes
  */
 abstract class Va {
 
